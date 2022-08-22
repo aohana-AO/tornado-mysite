@@ -9,7 +9,7 @@
 {% if user.is_authenticated %}
     <li><a href="">マイページ</a></li>
     <li><a href="">ログアウト</a></li>
-    <li><a href="">投稿</a></li>
+    <li><a href="{% url 'post_new' %}">投稿</a></li>
 
 {% else %}
     <li><a href="">サインイン</a></li>

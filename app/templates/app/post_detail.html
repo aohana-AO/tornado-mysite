@@ -10,9 +10,42 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-7 text-align">
                     <div class="section-heading">
-                        <h2><span>{{ post_data.title }}</span></h2><p>{{ post_data.createed }} <span>by {{ post_data.author }}</span></p>
+                        <h2><span>{{ post_data.title }}</span></h2><p></p>
                         <p class="subheading">{{ post_data.content|linebreaksbr}}</p>
                     </div>
+                <p>
+                        作成日：{{ post_data.created }}
+                    </p>
+
+                    <p>
+                        作成者:{{ post_data.author }}
+                    </p>
+
+                    <p>
+                    住所：{{ post_data.address }}
+                    </p>
+                    <p>
+                    緯度：{{ post_data.latitude }}
+                    </p>
+                    <p>
+                    経度：{{ post_data.longitude }}
+                    </p>
+                    <p>
+                    募集人数：{{ post_data.peopleNum }}
+                    </p>
+                    <p>
+                    規模：{{ post_data.problemSize }}
+                    </p>
+                    <p>
+                    問題カテゴリ：{{ post_data.problemCategory }}
+                    </p>
+                    <p>
+                    募集状態：{{ post_data.status }}
+                    </p>
+                    <p>
+                    搭載者種別：{{ post_data.organization }}
+                    </p>
+
 
                     {% if user.is_authenticated %}
                     <button type="button" class="btn btn-primary slide">自分の投稿を編集する <i class="fa fa-caret-right"></i></button>

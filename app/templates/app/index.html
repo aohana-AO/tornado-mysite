@@ -14,9 +14,9 @@
                     <h5>
                         {{ post.content|truncatechars:100 }}
                     </h5>
-                    {{ post.created }}
 
-                    <a href="{%  url 'post_detail' post.id %}" class="readmore">詳細へ進む <i class="fa fa-caret-right"></i></a>
+                    <a href="{% url 'post_detail' post.id %}" class="readmore">詳細へ進む <i
+                            class="fa fa-caret-right"></i></a>
                 </div>
                 <div class="arrow-down"></div>
                 <div class="testimonial_user">
