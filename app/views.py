@@ -43,5 +43,50 @@ class PostEditView(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
         post_data=Post.objects.get(id=self.kwargs['pk'])
         form = PostForm(
+            request.POST or None,
+            initial={
+                'title': post_data.title,
+                'content': post_data.content,
+                'author': post_data.author,
+                'status': post_data.status,
+                'organization': post_data.organization,
+                'peopleNum': post_data.peopleNum,
+                'problemCategory': post_data.problemCategory,
+                'problemSize': post_data.problemSize,
+                'purpose': post_data.purpose,
+
+            }
+
 
         )
+        return  render(request, 'app/post_form.html',{
+            'form': form
+        })
+
+    def post(self, request, *args, **kwargs):
+
+        form = PostForm(request.POST or None)
+
+        if form.is_valid():
+            post_data = Post.objects.get(id=self.kwargs['pk'])
+            post_data.author = request.user
+            post_data.title = form.cleaned_data['title']
+            post_data.content = form.cleaned_data['content']
+
+            if request.FILES:
+                post_data.image = request.FILES.get('image')
+            post_data.save()
+            return redirect('post_detail', self.kwargs['pk'])
+
+        return render(request, 'app/post_form.html', {
+            'form': form
+        })
+class PostDeleteView(View):
+    def get(self,request,*args, **kwargs):
+        post_data=Post.objects.get(id=self.kwargs['pk'])
+        return render(request,'app/post_delete.html',{'post_data':post_data})
+
+    def post(self,request,*args, **kwargs):
+        post_data=Post.objects.get(id=self.kwargs['pk'])
+        post_data.delete()
+        return redirect('index')
