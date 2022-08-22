@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    <li><a href="">マイページ</a></li>
+    <li><a href="">ログアウト</a></li>
+    <li><a href="">投稿</a></li>
+
+{% else %}
+    <li><a href="">サインイン</a></li>
+    <li><a href="">ログイン</a></li>
+{% endif %}
+<main>
+
+{% block content %}
+{% endblock %}
+
+</main>
+
+{% block js %}
+{% endblock %}
+</body>
+</html>
