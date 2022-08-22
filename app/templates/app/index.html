@@ -1,0 +1,49 @@
+{% extends "app/base.html" %}
+{% load static %}
+
+{% block content %}
+
+    <div class="row">
+        {% for post in post_data %}
+            <div class="col-md-4 col-sm-12 block ">
+                <div class="testimonial_box">
+                    <h4>
+                        【{{ post.title }}】
+                    </h4>
+
+                    <h5>
+                        {{ post.content|truncatechars:100 }}
+                    </h5>
+
+                    <a href="{% url 'post_detail' post.id %}" class="readmore">詳細へ進む <i
+                            class="fa fa-caret-right"></i></a>
+                </div>
+                <div class="arrow-down"></div>
+                <div class="testimonial_user">
+                    {% if post.image %}
+
+                        <div class="user-image"><img src="" alt="user" class="img-responsive"/></div>
+                    {% else %}
+                        <div class="user-image"><img src="" alt="user" class="img-responsive"/></div>
+                    {% endif %}
+                    <div class="user-info">
+                        <h4>{{ post.createed|date }} </h4>
+                        <h7>
+                                <span>
+                                    by {{ post.author }}
+                                    login user
+                                   </span>
+                        </h7>
+                    </div>
+
+
+                </div>
+            </div>
+
+        {% endfor %}
+
+
+    </div>
+
+{% endblock %}
+
