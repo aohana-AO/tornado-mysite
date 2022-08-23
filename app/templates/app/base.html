@@ -14,7 +14,7 @@
 
 {% else %}
     <li><a href="{% url 'index' %}">HOME</a></li>
-    <li><a href="">サインイン</a></li>
+    <li><a href="{% url 'account_signup' %}">サインイン</a></li>
     <li><a href="{% url 'account_login' %}">ログイン</a></li>
 {% endif %}
 <main>
