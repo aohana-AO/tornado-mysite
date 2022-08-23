@@ -1,0 +1,38 @@
+{% extends "app/base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+
+
+       <div class="col-md-6 col-sm-12">
+
+                    <div class="form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3>Logout to site</h3>
+                                <p>ログアウトしますか？</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-key"></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom">
+                            <form method='post' role="form" action="" class="login-form">
+
+
+                                {% csrf_token %}
+
+
+                                <div class="button mx-auto">
+                                    <button class="btn btn-lg btn-warning btn-blocck mx-auto" type="submit">
+                                        ログアウト
+
+                                    </button>
+
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+
+{% endblock %}
