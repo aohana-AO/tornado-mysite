@@ -3,17 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 </head>
 <body>
 {% if user.is_authenticated %}
-    <li><a href="{% url 'index' %}">HOME</a></li>
     <li><a href="">マイページ</a></li>
     <li><a href="">ログアウト</a></li>
     <li><a href="{% url 'post_new' %}">投稿</a></li>
 
 {% else %}
-    <li><a href="{% url 'index' %}">HOME</a></li>
     <li><a href="">サインイン</a></li>
     <li><a href="">ログイン</a></li>
 {% endif %}
