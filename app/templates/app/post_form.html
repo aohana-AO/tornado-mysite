@@ -17,12 +17,68 @@
         </div>
 
 
-        <div class="form-group">
+        <div class="form-group" style="width: 100%; margin-left: 5%">
             <label>Message *</label>
-
-
             <div>
-                {% render_field form.content class='form_control' placeholder='本文を入力' %}
+                {% render_field form.content class='form_control' placeholder='本文を入力' style="width: 80%; " %}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <p>※住所・緯度経度は適切な値を入力する必要があります。</p>
+            <label>住所 *</label>
+            <div>
+                {% render_field form.address class='form_control' placeholder='本文を入力' %}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>緯度 *</label>
+            <div>
+                {% render_field form.latitude class='form_control' placeholder='本文を入力' %}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>経度 *</label>
+            <div>
+                {% render_field form.longitude class='form_control' placeholder='本文を入力' %}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>問題カテゴリ *</label>
+            <div>
+                {% render_field form.problemCategory class='form_control' %}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>募集人員 *</label>
+            <div>
+                {% render_field form.peopleNum class='form_control' %}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>募集状態 *</label>
+            <div>
+                {% render_field form.status class='form_control' %}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>目的 *</label>
+            <div>
+                {% render_field form.purpose class='form_control' %}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>規模 *</label>
+            <div>
+                {% render_field form.problemSize class='form_control' %}
+            </div>
+        </div>
+        <div class="form-group">
+            <label>搭載者種別 *</label>
+            <div>
+                {% render_field form.organization class='form_control' %}
             </div>
         </div>
         <div class="form-group">
