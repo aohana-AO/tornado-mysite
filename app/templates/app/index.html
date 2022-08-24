@@ -15,8 +15,12 @@
                         {{ post.content|truncatechars:100 }}
                     </h5>
 
-                    <a href="{% url 'post_detail' post.id %}" class="readmore">詳細へ進む <i
-                            class="fa fa-caret-right"></i></a>
+
+                    <a href="{% url 'post_detail' post.id %}">
+                            <button class="btn btn-danger" type="submit">
+                                詳細
+                            </button>
+                        </a>
                 </div>
                 <div class="arrow-down"></div>
                 <div class="testimonial_user">

@@ -212,7 +212,11 @@ var data = [
         var popup_467388a00115455ca46c1385cc7a018a = L.popup({"maxWidth": "100%"});
 
 
-            var html_1b353e954bf148debed1941c4d7fe4ee = $(`<div id="html_82f1134837384cfe9d78f038ada5ff16" style="width: 350px; height: 200px;overflow-y: scroll;"><div id="q"><strong><h3><a href="https://maps.google.co.jp/maps?q={{ post.title }}"><font size="4" color="#0000FF">{{ post.title }}</font></a></h3></strong><hr><p><strong>住所：</strong><a href="https://maps.google.co.jp/maps?q={{ post.address }}"><strong>{{ post.address }}</strong></a></p><p><strong>緯度：</strong>{{ post.latitude }}<p><strong>経度：</strong>{{ post.longitude }}</p><p><strong>募集人員：</strong>{{ post.peopleNum }}</p><p><strong>募集状態：</strong>{{ post.status }}</p><p><strong>がけ崩れ・土石流・地すべり：</strong>{{ Kinnkyuuhinann.がけ崩れ土石流地すべり }}</p><p><strong>高潮：</strong>{{ Kinnkyuuhinann.高潮 }}</p><p><strong>地震：</strong>{{ Kinnkyuuhinann.地震 }}</p><p><strong>津波：</strong>{{ Kinnkyuuhinann.津波 }}</p><p><strong>大規模火災：</strong>{{ Kinnkyuuhinann.大規模火災 }}</p><p><strong>内水氾濫：</strong>{{ Kinnkyuuhinann.内水氾濫 }}</p><p><strong>火山現象：</strong>{{ Kinnkyuuhinann.火山現象 }}</p><p><strong>想定収容人数：</strong>{{ Kinnkyuuhinann.想定収容人数 }}人<p>管理者電話:<a href="{{ Kinnkyuuhinann.管理者電話 }}">{{ Kinnkyuuhinann.管理者電話 }}</a></p></div> </div>`)[0];
+            var html_1b353e954bf148debed1941c4d7fe4ee = $(`<div id="html_82f1134837384cfe9d78f038ada5ff16" style="width: 350px; height: 200px;overflow-y: scroll;"><div id="q"><strong><h3><a href="https://maps.google.co.jp/maps?q={{ post.title }}"><font size="4" color="#0000FF">{{ post.title }}</font></a></h3></strong><hr><p><strong>住所：</strong><a href="https://maps.google.co.jp/maps?q={{ post.address }}"><strong>{{ post.address }}</strong></a></p><p><strong>緯度：</strong>{{ post.latitude }}<p><strong>経度：</strong>{{ post.longitude }}</p><p><strong>募集人員：</strong>{{ post.peopleNum }}</p><p><strong>募集状態：</strong>{{ post.status }}</p><p><strong>カテゴリ：</strong>{{ post.problemCategory }}</p><p><strong>目的：</strong>{{ post.purpose }}</p><p><strong>搭載者：</strong>{{ post.organization }}</p> <a href="{% url 'post_detail' post.id %}">
+                            <button class="btn btn-danger" type="submit">
+                                詳細
+                            </button>
+                        </a></div> </div>`)[0];
             popup_467388a00115455ca46c1385cc7a018a.setContent(html_1b353e954bf148debed1941c4d7fe4ee);
 
 
