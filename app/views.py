@@ -1,6 +1,6 @@
 import requests
 import pandas as pd
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.views.generic import View
 from .models import Post
 from .forms import PostForm
@@ -8,22 +8,32 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView, ListView
 import openpyxl
 
+
 class IndexView(View):
-    def get(self,request,*args, **kwargs):
-        post_data=Post.objects.order_by('-id')
-        return render(request,'app/index.html',{
-            'post_data':post_data
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.order_by('-id')
+        return render(request, 'app/index.html', {
+            'post_data': post_data
+        })
+class MapView(View):
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.order_by('-id')
+        return render(request, 'app/MapView.html', {
+            'post_data': post_data
         })
 
 class JuusyoMapView(TemplateView):
     template_name = 'app/juusyomap.html'
 
+
 class PostDetailView(View):
-    def get(self,request,*args, **kwargs):
-        post_data=Post.objects.get(id=self.kwargs['pk'])
-        return render(request,'app/post_detail.html',{'post_data':post_data})
-class CreatePostMap2(LoginRequiredMixin,View):
-    def map(request,*args, **kwargs):
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.get(id=self.kwargs['pk'])
+        return render(request, 'app/post_detail.html', {'post_data': post_data})
+
+
+class CreatePostMap2(LoginRequiredMixin, View):
+    def map(request, *args, **kwargs):
         lat = request.POST.get("lat")
         lng = request.POST.get("lng")
         print(lat)
@@ -34,12 +44,10 @@ class CreatePostMap2(LoginRequiredMixin,View):
                 'latitude': lat,
                 'longitude': 'title',
 
-
             }
 
-
         )
-        return render(request, 'app/post_form.html',{
+        return render(request, 'app/post_form.html', {
             'form': form
         })
 
@@ -65,7 +73,7 @@ class CreatePostMap2(LoginRequiredMixin,View):
         })
 
 
-class CreatePostMap(LoginRequiredMixin,View):
+class CreatePostMap(LoginRequiredMixin, View):
     def map(request, *args, **kwargs):
         lat = request.POST.get("lat")
         lng = request.POST.get("lng")
@@ -136,14 +144,14 @@ class CreatePostMap(LoginRequiredMixin,View):
                 'latitude': lat,
                 'longitude': lng,
 
-
             }
 
         )
 
-        return render(request,'app/post_form.html',{
-            'form':form,"lat": lat, "lng": lng, 'juusyo': juusyo, 'tikaku': tikaku,
+        return render(request, 'app/post_form.html', {
+            'form': form, "lat": lat, "lng": lng, 'juusyo': juusyo, 'tikaku': tikaku,
         })
+
     def post(request, *args, **kwargs):
         form = PostForm(request.POST or None)
 
@@ -172,11 +180,11 @@ class CreatePostMap(LoginRequiredMixin,View):
         })
 
 
-class CreatePostView(LoginRequiredMixin,View):
-    def get(self,request,*args, **kwargs):
-        form=PostForm(request.POST or None)
-        return render(request,'app/post_form.html',{
-            'form':form
+class CreatePostView(LoginRequiredMixin, View):
+    def get(self, request, *args, **kwargs):
+        form = PostForm(request.POST or None)
+        return render(request, 'app/post_form.html', {
+            'form': form
         })
 
     def post(self, request, *args, **kwargs):
@@ -205,6 +213,7 @@ class CreatePostView(LoginRequiredMixin,View):
         return render(request, 'app/post_form.html', {
             'form': form
         })
+
 
 class PostEditView(LoginRequiredMixin,View):
     def get(self, request, *args, **kwargs):
@@ -253,12 +262,14 @@ class PostEditView(LoginRequiredMixin,View):
         return render(request, 'app/post_form.html', {
             'form': form
         })
-class PostDeleteView(View):
-    def get(self,request,*args, **kwargs):
-        post_data=Post.objects.get(id=self.kwargs['pk'])
-        return render(request,'app/post_delete.html',{'post_data':post_data})
 
-    def post(self,request,*args, **kwargs):
-        post_data=Post.objects.get(id=self.kwargs['pk'])
+
+class PostDeleteView(View):
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.get(id=self.kwargs['pk'])
+        return render(request, 'app/post_delete.html', {'post_data': post_data})
+
+    def post(self, request, *args, **kwargs):
+        post_data = Post.objects.get(id=self.kwargs['pk'])
         post_data.delete()
         return redirect('index')

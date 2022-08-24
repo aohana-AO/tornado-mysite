@@ -3,6 +3,7 @@ from app import views
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name='index'),
+    path('MapView/', views.MapView.as_view(), name='MapView'),
     path('juusyomap/', views.JuusyoMapView.as_view(), name='juusyomap'),
     path('juusyocreatemap/', views.CreatePostMap.map, name='juusyocreatemap'),
     path('juusyocreatemap2/', views.CreatePostMap.post, name='juusyocreatemap2'),

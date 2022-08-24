@@ -3,7 +3,11 @@
 {% load static %}
 
 {% block content %}
+    {% if lat %}
     <form class="contact-form" name="contact-form" method="post" enctype="multipart/form-data" action="{% url 'juusyocreatemap2' %}">
+        {% else %}
+    <form class="contact-form" name="contact-form" method="post" enctype="multipart/form-data" >
+    {% endif %}
         {% csrf_token %}
 
         <div class="form-group">
