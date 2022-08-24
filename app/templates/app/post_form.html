@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-    <form class="contact-form" name="contact-form" method="post" enctype="multipart/form-data">
+    <form class="contact-form" name="contact-form" method="post" enctype="multipart/form-data" action="{% url 'juusyocreatemap2' %}">
         {% csrf_token %}
 
         <div class="form-group">
@@ -24,25 +24,28 @@
             </div>
         </div>
 
-        <div class="form-group">
+    <div class="form-group">
             <p>※住所・緯度経度は適切な値を入力する必要があります。</p>
             <label>住所 *</label>
             <div>
-                {% render_field form.address class='form_control' placeholder='本文を入力' %}
+                {% render_field form.address class='form_control' %}
             </div>
         </div>
         <div class="form-group">
             <label>緯度 *</label>
             <div>
-                {% render_field form.latitude class='form_control' placeholder='本文を入力' %}
+                {% render_field form.latitude class='form_control' placeholder=lat  %}
+
             </div>
         </div>
         <div class="form-group">
             <label>経度 *</label>
             <div>
-                {% render_field form.longitude class='form_control' placeholder='本文を入力' %}
+                {% render_field form.longitude class='form_control' placeholder=lng %}
             </div>
-        </div>
+
+
+
         <div class="form-group">
             <label>問題カテゴリ *</label>
             <div>

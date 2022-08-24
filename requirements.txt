@@ -1,3 +1,5 @@
 Django==4.1
 django-widget-tweaks
 django-allauth
+requests
+pandas
