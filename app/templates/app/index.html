@@ -4,6 +4,9 @@
 {% block content %}
 
     <div class="row">
+        <div class="room-link-container">
+            <a href="{% url 'room' %}">部屋に入る</a>
+        </div>
         {% for post in post_data %}
             <div class="col-md-4 col-sm-12 block ">
                 <div class="testimonial_box">
