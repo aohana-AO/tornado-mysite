@@ -27,6 +27,7 @@
                                             <i class="fa fa-caret-right"></i>
                                         </button>
                                 </a>
+
                                 <a href="{% url 'MapItirann' %}">
 
                                 <button class="btn btn-warning">map一覧
@@ -37,7 +38,7 @@
 
                                 <!--絞り込みform-->
                                 <form class="contact-form" name="contact-form" method="post"
-                                      enctype="multipart/form-data">
+                                      enctype="multipart/form-data" target="itr">
 
 
                                     {% csrf_token %}
@@ -142,29 +143,7 @@
                             var $mcj = jQuery.noConflict(true);</script>
                             <!--End mc_embed_signup-->
                         </div>
-                        <div class="sidebar-section">
-                            <h5><span>Useful</span></h5>
-                            <ul style="list-none;">
-                                <li><a target="_blank" href="https://m.do.co/c/84c9b45d0c47">Digital Ocean</a></li>
-                                <li><a target="_blank"
-                                       href="https://www.cloudways.com/en/pricing.php?id=153986&a_bid=005da123">Cloudways</a>
-                                </li>
-                                <li><a target="_blank"
-                                       href="https://shareasale.com/r.cfm?b=875645&u=1087935&m=41388&urllink=&afftrack=">Page
-                                    Speed Test</a></li>
-                                <li><a target="_blank" href="https://elementor.com/?ref=1556">Elementor Page Builder</a>
-                                </li>
-                                <li><a target="_blank" href="https://www.wowthemes.net/category/freebies/">Our
-                                    Freebies</a></li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-section">
-                            <h5><span>Recommended</span></h5>
-                            <a href="https://easydigitaldownloads.com/?ref=2135"
-                               title="Sell digital downloads with WordPress, for free"><img
-                                    src="https://easydigitaldownloads.com/wp-content/uploads/2015/02/300x250-2.png"
-                                    alt="Sell digital downloads with WordPress, for free"/></a>
-                        </div>
+
                     </div>
                 </div>
 
@@ -179,57 +158,14 @@
 
                         <!-- end post -->
                         <!-- begin post -->
-                        {% for post in post_data %}
 
-                            <div class="col-md-6 grid-item">
-                                <div class="card">
-                                    <a href="{% url 'post_detail' post.id %}">
-                                        <img class="img-fluid" src="assets/images/3.jpg" alt="Red Riding Hood">
-                                    </a>
-                                    <div class="card-block">
-                                        <h2 class="card-title"><a
-                                                href="{% url 'post_detail' post.id %}">【{{ post.title }}】</a></h2>
-                                        <h4 class="card-text">{{ post.content|truncatechars:100 }}</h4>
-                                        <strong><h4 class="card-text">問題カテゴリ：{{ post.problemCategory }}</h4>
-                                            <h4 class="card-text">address：{{ post.address }}</h4></strong>
-                                        <div class="metafooter">
-                                            <div class="wrapfooter">
-										<span class="meta-footer-thumb">
-                                                        {% if post.image %}
-
-                                                            <div class="user-image"><img src="" alt="user"
-                                                                                         class="img-responsive"/></div>
-                                                        {% else %}
-                                                            <img class="author-thumb"
-                                                                 src="https://www.gravatar.com/avatar/e56154546cf4be74e393c62d1ae9f9d4?s=250&d=mm&r=x"
-                                                                 alt="Sal">
-                                                        {% endif %}
-
-										</span>
-                                                <span class="author-meta">
-										<span class="post-name"><a target="_blank" href="#">{{ post.author }}</a></span><br/>
-										<span class="post-date">{{ post.created }}</span>
-										</span>
-                                                <span class="post-read-more"><a href="single.html" title="Read Story"><i
-                                                        class="fa fa-link"></i></a></span>
-                                                <div class="clearfix">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        {% endfor %}
                         <!-- end post -->
 
                     </div>
                     <!-- Pagination -->
                     <div class="bottompagination">
                         <div class="navigation">
-                            <nav class="pagination">
-                                <span class="page-number"> &nbsp; &nbsp; Page 1 of 1 &nbsp; &nbsp; </span>
-                            </nav>
+                            <iframe name='itr' src="{% url 'MapView' %}" width='1100px' height='600px'></iframe>
                         </div>
                     </div>
                 </div>
@@ -241,4 +177,3 @@
     <br>
 
 {% endblock %}
-
