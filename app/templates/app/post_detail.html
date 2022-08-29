@@ -51,7 +51,7 @@
                     </p>
 
 
-                    {% if user.is_authenticated %}
+                    {% if user == post_data.author %}
                         <a href="{% url 'post_edit' post_data.id %}">
                             <button class="btn btn-warning" type="submit">
                                 自分の投稿を編集する

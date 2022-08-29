@@ -28,8 +28,9 @@ class JuusyoMapView(TemplateView):
 
 class PostDetailView(View):
     def get(self, request, *args, **kwargs):
+        user = request.user
         post_data = Post.objects.get(id=self.kwargs['pk'])
-        return render(request, 'app/post_detail.html', {'post_data': post_data})
+        return render(request, 'app/post_detail.html', {'post_data': post_data, 'user': user})
 
 
 class CreatePostMap2(LoginRequiredMixin, View):
