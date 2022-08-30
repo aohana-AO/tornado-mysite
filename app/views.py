@@ -12,9 +12,68 @@ import openpyxl
 class IndexView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by('-id')
+        form = PostForm(request.POST or None)
         return render(request, 'app/index.html', {
-            'post_data': post_data
+            'post_data': post_data, 'form': form
         })
+
+    def post(self, request, *args, **kwargs):
+        form = PostForm(request.POST or None)
+        print(1)
+        print(2)
+        problemcategory = request.POST["problemcategory"]
+        print(problemcategory)
+        purpose = request.POST["purpose"]
+        print(purpose)
+        status = request.POST["status"]
+        print(status)
+        problemsize = request.POST["problemSize"]
+        print(problemsize)
+        organization = request.POST["organization"]
+        print(organization)
+        post_data = Post.objects.filter(problemCategory=problemcategory, purpose=purpose, status=status,
+                                        problemSize=problemsize, organization=organization)
+
+        if request.FILES:
+            post_data.image = request.FILES.get('image')
+
+        return render(request, 'app/index.html', {
+            'post_data': post_data, 'form': form
+        })
+
+
+class MapItirannView(View):
+    def get(self, request, *args, **kwargs):
+        post_data = Post.objects.order_by('-id')
+        form = PostForm(request.POST or None)
+        return render(request, 'app/MapItirann.html', {
+            'post_data': post_data, 'form': form
+        })
+    def post(self, request, *args, **kwargs):
+        form = PostForm(request.POST or None)
+        print(1)
+        print(2)
+        problemcategory = request.POST["problemcategory"]
+        print(problemcategory)
+        purpose = request.POST["purpose"]
+        print(purpose)
+        status = request.POST["status"]
+        print(status)
+        problemsize = request.POST["problemSize"]
+        print(problemsize)
+        organization = request.POST["organization"]
+        print(organization)
+        post_data = Post.objects.filter(problemCategory=problemcategory, purpose=purpose, status=status,
+                                        problemSize=problemsize, organization=organization)
+
+        if request.FILES:
+            post_data.image = request.FILES.get('image')
+
+        return render(request, 'app/MapView.html', {
+            'post_data': post_data, 'form': form
+        })
+
+
 class MapView(View):
     def get(self, request, *args, **kwargs):
         post_data = Post.objects.order_by('-id')
@@ -22,14 +81,40 @@ class MapView(View):
             'post_data': post_data
         })
 
+    def post(self, request, *args, **kwargs):
+        form = PostForm(request.POST or None)
+        print(1)
+        print(2)
+        problemcategory = request.POST["problemcategory"]
+        print(problemcategory)
+        purpose = request.POST["purpose"]
+        print(purpose)
+        status = request.POST["status"]
+        print(status)
+        problemsize = request.POST["problemSize"]
+        print(problemsize)
+        organization = request.POST["organization"]
+        print(organization)
+        post_data = Post.objects.filter(problemCategory=problemcategory, purpose=purpose, status=status,
+                                        problemSize=problemsize, organization=organization)
+
+        if request.FILES:
+            post_data.image = request.FILES.get('image')
+
+        return render(request, 'app/MapItirann.html', {
+            'post_data': post_data, 'form': form
+        })
+
+
 class JuusyoMapView(TemplateView):
     template_name = 'app/juusyomap.html'
 
 
 class PostDetailView(View):
     def get(self, request, *args, **kwargs):
+        user = request.user
         post_data = Post.objects.get(id=self.kwargs['pk'])
-        return render(request, 'app/post_detail.html', {'post_data': post_data})
+        return render(request, 'app/post_detail.html', {'post_data': post_data, 'user': user})
 
 
 class CreatePostMap2(LoginRequiredMixin, View):
@@ -40,9 +125,8 @@ class CreatePostMap2(LoginRequiredMixin, View):
         form = PostForm(
             initial={
 
-                'address': 'title',
                 'latitude': lat,
-                'longitude': 'title',
+                'longitude': lng,
 
             }
 
@@ -215,9 +299,9 @@ class CreatePostView(LoginRequiredMixin, View):
         })
 
 
-class PostEditView(LoginRequiredMixin,View):
+class PostEditView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
-        post_data=Post.objects.get(id=self.kwargs['pk'])
+        post_data = Post.objects.get(id=self.kwargs['pk'])
         form = PostForm(
             request.POST or None,
             initial={
@@ -236,9 +320,8 @@ class PostEditView(LoginRequiredMixin,View):
 
             }
 
-
         )
-        return render(request, 'app/post_form.html',{
+        return render(request, 'app/post_form.html', {
             'form': form
         })
 

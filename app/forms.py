@@ -7,17 +7,24 @@ class PostForm(forms.Form):
 
     address = forms.CharField(label='住所', widget=forms.Textarea(attrs={'cols': '100', 'rows': '1'}))
     latitude = forms.FloatField(label='緯度', widget=forms.Textarea(attrs={'cols': '100', 'rows': '1'}))
-    longitude = forms.FloatField(label='内容', widget=forms.Textarea(attrs={'cols': '100', 'rows': '1'}))
-
+    longitude = forms.FloatField(label='経度', widget=forms.Textarea(attrs={'cols': '100', 'rows': '1'}))
+    image = forms.ImageField(label='イメージ画像', required=False)
     problemCategory = forms.fields.ChoiceField(
 
         choices=(
             ('環境問題', '環境問題'),
+            ('伝統・文化', '伝統・文化'),
+            ('防災・防犯', '防災・防犯'),
+            ('多様性', '多様性'),
+            ('政治', '政治'),
+            ('労働', '労働'),
+            ('人手不足', '人手不足'),
             ('いきもの', 'いきもの'),
-            ('高齢者', '高齢者'),
+            ('少子・高齢', '少子・高齢'),
             ('人間関係', '人間関係'),
             ('貧困', '貧困'),
             ('資源問題', '資源問題'),
+            ('ゴミ・清掃', 'ゴミ・清掃'),
             ('その他', 'その他')
         ),
         label='カテゴリー',
@@ -26,7 +33,7 @@ class PostForm(forms.Form):
     )
     peopleNum = forms.fields.FloatField(
 
-        label='内容', widget=forms.Textarea(attrs={'cols': '100', 'rows': '1'})
+        label='人数', widget=forms.Textarea(attrs={'cols': '100', 'rows': '1'})
     )
     purpose = forms.fields.ChoiceField(
 

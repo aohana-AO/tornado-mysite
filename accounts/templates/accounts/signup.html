@@ -5,43 +5,25 @@
 {% block content %}
 
 
-    <!--forms-right-icons-->
-    <div class="col-md-6 col-sm-12">
-        <div class="form-box">
-            <div class="form-top">
-                <div class="form-top-left">
-                    <h3>sign-up</h3>
-                    <p>アカウントを登録します。</p>
-                </div>
-                <div class="form-top-right">
-                    <i class="fa fa-pencil"></i>
-                </div>
-            </div>
-            <div class="form-bottom">
-                <form method="post" class="form-auth">
+    <section class="intro">
+        <div class="wrapintro">
+            <h1>sign-up page</h1>
+            <h2 class="lead"><i class="fa fa-key"></i>  "こちらからサインアップできます"</h2>
+              <form method="post" class="form-auth">
                     {% csrf_token %}
 
-                    <div class="input-group form-group">
+
                                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i>
                                         {% render_field form.username class='form_control' placeholder='ユーザーネーム' %}</span>
-                    </div>
 
-
-                    <div class="input-group form-group">
-                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope"></i>
-                                        {% render_field form.email class='form_control' placeholder='メールアドレス' %}</span>
-
-                    </div>
-                    <div class="input-group form-group">
                                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-unlock"></i>
                                         {% render_field form.password1 class='form_control' placeholder='パスワード' %}</span>
 
-                    </div>
-                    <div class="input-group form-group">
+
                                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-unlock"></i>
                                         {% render_field form.password2 class='form_control' placeholder='パスワード(確認用)' %}</span>
 
-                    </div>
+                  <br>
                     <div class="button mx-auto">
                         <button class="btn btn-lg btn-primary btn-blocck mx-auto " type="submit">
                             登録する
@@ -50,8 +32,6 @@
                     </div>
 
                 </form>
-            </div>
         </div>
-    </div>
-
+    </section>
 {% endblock %}
