@@ -328,7 +328,7 @@ span.post-name a,span.post-read-more a:hover {
 	margin-bottom:1rem;
 }
 .intro {
-    background-image:url(../images/head.jpg);
+    background-image:url(../../static/img/head.jpg);
     background-size:cover;
     padding: 9rem 0;
     margin-top:-87px;
@@ -388,7 +388,10 @@ span.post-name a,span.post-read-more a:hover {
     margin-top: 10px;
 }
 .beforefooter {
-    background: #fff100;
+    /*background-image: url("../../static/img/42e4ea006495678223ef5ba719b75c62.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;*/
+    background-color: #ffc46a;
     color: #111;
     padding: 50px 0;
     max-width: 100%;

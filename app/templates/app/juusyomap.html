@@ -47,7 +47,7 @@
 
  <form style="position: absolute;" class="" action="{% url 'juusyocreatemap' %}" method="post" enctype="multipart/form-data">{% csrf_token %}
      <input id="lat" type="hidden" name="lat" value="" /><input id="lng" type="hidden" name="lng" value="" />
- <input class="btn btn-primary btn-lg" style=" z-index: 10000;position: relative; top: 9px; left: 50px; width: 210px" type="submit" name="button" value="この場所の情報を見る" onclick="return checkForm();">
+ <input class="btn btn-primary btn-lg" style=" z-index: 10000;position: relative; top: 9px; left: 50px; width: 210px" type="submit" name="button" value="ここにピンを立てる" onclick="return checkForm();">
  </form>
             <div class="folium-map" id="map_290f8bf58b504a9dbb050469d3255ec9" ></div>
 

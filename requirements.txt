@@ -4,3 +4,4 @@ django-allauth
 requests
 pandas
 channels
+Pillow

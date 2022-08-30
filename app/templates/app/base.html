@@ -23,21 +23,30 @@
     <div class="container">
         <!-- Begin Logo -->
         <a class="navbar-brand" href="index.html">
-            <img src="{% static 'img/1.png' %}" alt="-Anoac-">
+            <img style="width: 250px" src="{% static 'img/logo (36).png' %}" alt="-NeighbAc-">
         </a>
         <!-- End Logo -->
         <!-- Begin Menu -->
         <div class="collapse navbar-collapse" id="navbarsWow">
             <!-- Begin Menu -->
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">HOME</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'MapView' %}">Mapで確認</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'index' %}">リストで確認</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'MapItirann' %}">Mapで確認</a></li>
                 {% if user.is_authenticated %}
 
-                    <li class="nav-item"><a class="nav-link" href="">マイページ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'post_new' %}">投稿</a></li>
                     <li class="nav-item"><a class="nav-link" href="{% url 'juusyomap' %}">Map選択で投稿</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'juusyomap' %}">community</a></li>
 
+
+                     <li class="nav-item" style="margin-bottom: 6px;margin-right: 6px">
+                        <a href="{% url 'juusyomap' %}">
+
+                            <button class="btn btn-warning">マイページ
+                                <i class="fa fa-caret-right"></i>
+                            </button>
+                        </a>
+
+                    </li>
                     <li class="nav-item">
                         <a href="{% url 'account_logout' %}">
 

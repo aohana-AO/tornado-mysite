@@ -8,7 +8,7 @@ class PostForm(forms.Form):
     address = forms.CharField(label='住所', widget=forms.Textarea(attrs={'cols': '100', 'rows': '1'}))
     latitude = forms.FloatField(label='緯度', widget=forms.Textarea(attrs={'cols': '100', 'rows': '1'}))
     longitude = forms.FloatField(label='経度', widget=forms.Textarea(attrs={'cols': '100', 'rows': '1'}))
-
+    image = forms.ImageField(label='イメージ画像', required=False)
     problemCategory = forms.fields.ChoiceField(
 
         choices=(
