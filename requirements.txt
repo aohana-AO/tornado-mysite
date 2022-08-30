@@ -5,3 +5,5 @@ requests
 pandas
 channels
 Pillow
+gunicorn
+whitenoise
