@@ -75,7 +75,9 @@
 
                         </a>
 
-                        <a href="{% url 'post_delete' post_data.id %}" style="margin-right: 15px">
+
+                    {% endif %}
+                 <a href="{% url 'post_delete' post_data.id %}" style="margin-right: 15px">
                             <button class="btn btn-info" type="submit">
                                 入室
                             </button>
@@ -86,7 +88,6 @@
                                 <i class="fa fa-star-o" aria-hidden="true"></i>
                             </button>
                         </a>
-                    {% endif %}
                             <br><br>
             <br><br>
 
