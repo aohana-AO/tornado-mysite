@@ -59,7 +59,9 @@
 
 
                     {% if user == post_data.author %}
-                        <a href="{% url 'post_edit' post_data.id %}" style="margin-right: 15px">
+                        <div style="margin-bottom: 15px">
+
+                        <a href="{% url 'post_edit' post_data.id %}" style="margin-right: 15px;">
                             <button class="btn btn-warning" type="submit">
                                 自分の投稿を編集する
                             </button>
@@ -67,25 +69,26 @@
 
                         </a>
 
-                           <a href="{% url 'post_delete' post_data.id %}" style="margin-right: 15px">
+                           <a href="{% url 'post_delete' post_data.id %}">
                             <button class="btn btn-danger" type="submit">
                                 自分の投稿を削除する
                             </button>
 
 
-                        </a>
 
 
+                        </div>
                     {% endif %}
-                 <a href="{% url 'post_delete' post_data.id %}" style="margin-right: 15px">
-                            <button class="btn btn-info" type="submit">
-                                入室
+
+
+                         <a href="{% url 'post_delete' post_data.id %}" style="margin-right: 15px;">
+                            <button class="btn btn-warning" type="submit">
+                                <i class="fa fa-star-o" aria-hidden="true"></i>コミュニティに追加
                             </button>
                         </a>
-
-                         <a href="{% url 'post_delete' post_data.id %}" style="margin-right: 15px">
-                            <button class="btn btn-warning" type="submit">
-                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                 <a href="{% url 'post_delete' post_data.id %}" style="margin-right: 15px; ">
+                            <button class="btn btn-info" type="submit">
+                                入室する
                             </button>
                         </a>
                             <br><br>
