@@ -67,12 +67,25 @@
 
                         </a>
 
-                        <a href="{% url 'post_delete' post_data.id %}">
+                           <a href="{% url 'post_delete' post_data.id %}" style="margin-right: 15px">
                             <button class="btn btn-danger" type="submit">
                                 自分の投稿を削除する
                             </button>
+
+
                         </a>
 
+                        <a href="{% url 'post_delete' post_data.id %}" style="margin-right: 15px">
+                            <button class="btn btn-info" type="submit">
+                                入室
+                            </button>
+                        </a>
+
+                         <a href="{% url 'post_delete' post_data.id %}" style="margin-right: 15px">
+                            <button class="btn btn-warning" type="submit">
+                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                            </button>
+                        </a>
                     {% endif %}
                             <br><br>
             <br><br>
